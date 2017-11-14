@@ -1,0 +1,49 @@
+{
+  "name": "webcube-redux",
+  "version": "1.0.0-rc.1",
+  "description": "",
+  "author": "dexteryy <dexter.yy@gmail.com>",
+  "contributors": [],
+  "bugs": {
+    "url": "https://github.com/dexteryy/Project-WebCube/issues"
+  },
+  "homepage": "https://github.com/dexteryy/Project-WebCube/tree/master/webcube-redux",
+  "repository": "https://github.com/dexteryy/Project-WebCube",
+  "license": "MIT",
+  "main": "./src/index.js",
+  "engines": {
+    "node": ">=6.9.0"
+  },
+  "scripts": {},
+  "dependencies": {
+    "hifetch": "^2.1.1",
+    "hoist-non-react-statics": "^2.3.1",
+    "normalizr": "^3.2.4",
+    "react": "^16.1.1",
+    "react-block-ui": "^1.1.1",
+    "react-notification-system-redux": "^1.2.0",
+    "react-redux": "^5.0.6",
+    "react-redux-toastr": "^7.1.6",
+    "react-router-redux": "^5.0.0-alpha.8",
+    "redux": "^3.7.2",
+    "redux-actions": "^2.2.1",
+    "redux-axios-middleware": "^4.0.0",
+    "redux-debounced": "^0.4.0",
+    "redux-devtools-extension": "^2.13.2",
+    "redux-immutable": "^4.0.0",
+    "redux-immutable-state-invariant": "^2.1.0",
+    "redux-logger": "^3.0.6",
+    "redux-observable": "^0.17.0",
+    "redux-persist": "^5.3.5",
+    "redux-promise-middleware": "^4.4.2",
+    "redux-thunk": "^2.2.0",
+    "reselect": "^3.0.1",
+    "topologically-combine-reducers": "^0.0.5"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "redux",
+    "boilerplate",
+    "webcube"
+  ]
+}

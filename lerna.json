@@ -5,6 +5,7 @@
   "version": "independent",
   "packages": [
     "webcube/",
+    "webcube-redux/",
     "nodecube/",
     "eslint-config-webcube/",
     "*-example-*/"

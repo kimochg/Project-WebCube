@@ -55,6 +55,7 @@
     // "plugin:flowtype/recommended",
     "plugin:import/errors",
     "plugin:import/warnings",
+    "plugin:eslint-comments/recommended",
     "plugin:promise/recommended",
     "plugin:node/recommended"
   ],
@@ -1362,7 +1363,12 @@
     // https://github.com/yannickcr/eslint-plugin-react/blob/HEAD/docs/rules/prefer-es6-class.md
     "react/prefer-es6-class": "error",
     // https://github.com/yannickcr/eslint-plugin-react/blob/HEAD/docs/rules/prefer-stateless-function.md
-    "react/prefer-stateless-function": "error",
+    "react/prefer-stateless-function": [
+      "error",
+      {
+        "ignorePureComponents": false
+      }
+    ],
     // https://github.com/yannickcr/eslint-plugin-react/blob/HEAD/docs/rules/prop-types.md
     "react/prop-types": [
       "error",
@@ -1424,11 +1430,11 @@
             "mixins",
             "statics",
             "defaultProps",
-            "constructor",
             "getDefaultProps",
-            "getInitialState",
             "state",
+            "getInitialState",
             "getChildContext",
+            "constructor",
             "componentWillMount",
             "componentDidMount",
             "componentWillReceiveProps",
@@ -1695,9 +1701,16 @@
     "import/no-named-default": "error",
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-anonymous-default-export.md
     "import/no-anonymous-default-export": "error",
+    // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/group-exports.md
+    "import/group-exports": "off",
     // eslint-comments
     // https://github.com/mysticatea/eslint-plugin-eslint-comments/blob/HEAD/docs/rules/disable-enable-pair.md
-    "eslint-comments/disable-enable-pair": "error",
+    "eslint-comments/disable-enable-pair": [
+      "error",
+      {
+        "allowWholeFile": false
+      }
+    ],
     // https://github.com/mysticatea/eslint-plugin-eslint-comments/blob/HEAD/docs/rules/no-duplicate-disable.md
     "eslint-comments/no-duplicate-disable": "error",
     // https://github.com/mysticatea/eslint-plugin-eslint-comments/blob/HEAD/docs/rules/no-unlimited-disable.md
@@ -1725,6 +1738,10 @@
         ]
       }
     ],
+    // https://github.com/mysticatea/eslint-plugin-eslint-comments/blob/HEAD/docs/rules/no-aggregating-enable.md
+    "eslint-comments/no-aggregating-enable": "error",
+    // https://github.com/mysticatea/eslint-plugin-eslint-comments/blob/HEAD/docs/rules/no-restricted-disable.md
+    "eslint-comments/no-restricted-disable": "off",
     // filenames
     // https://www.npmjs.com/package/eslint-plugin-filenames#consistent-filenames-via-regex-match-regex
     // @TIPS

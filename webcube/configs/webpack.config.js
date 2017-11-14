@@ -61,8 +61,9 @@ const entries = Object.assign(
   process.env.WEBCUBE_ENABLE_COMMON_CHUNK
     ? {
         // http://christianalfoni.github.io/react-webpack-cookbook/Split-app-and-vendors.html
-        common: ((process.env.WEBCUBE_ENABLE_COMMON_CHUNK &&
-          JSON.parse(process.env.WEBCUBE_COMMON_CORE_MODULES || null)) ||
+        common: (
+          (process.env.WEBCUBE_ENABLE_COMMON_CHUNK &&
+            JSON.parse(process.env.WEBCUBE_COMMON_CORE_MODULES || null)) ||
           []
         ).concat(
           JSON.parse(process.env.WEBCUBE_COMMON_PROJECT_MODULES || null) || []
@@ -261,10 +262,14 @@ module.exports = Object.assign(
             path.join(rootPath, 'src'),
             path.join(rootPath, 'staticweb'),
             path.join(rootPath, 'node_modules/webcube'),
+            path.join(rootPath, 'node_modules/webcube-redux'),
           ]
             .concat(
               monorepoModules
-                ? [path.join(monorepoModules, '../', 'webcube')]
+                ? [
+                    path.join(monorepoModules, '../', 'webcube'),
+                    path.join(monorepoModules, '../', 'webcube-redux'),
+                  ]
                 : []
             )
             .concat(customConfig.babelLoaderInclude),
@@ -332,10 +337,12 @@ module.exports = Object.assign(
           loaders: [
             // https://www.npmjs.com/package/url-loader
             isProductionEnv
-              ? `url?limit=${process.env
-                  .WEBCUBE_DATAURL_IMAGES_LIMIT}&name=assets/[name]_[hash].[ext]`
-              : `url?limit=${process.env
-                  .WEBCUBE_DATAURL_IMAGES_LIMIT}&name=assets/[name].[ext]`,
+              ? `url?limit=${
+                  process.env.WEBCUBE_DATAURL_IMAGES_LIMIT
+                }&name=assets/[name]_[hash].[ext]`
+              : `url?limit=${
+                  process.env.WEBCUBE_DATAURL_IMAGES_LIMIT
+                }&name=assets/[name].[ext]`,
             // https://www.npmjs.com/package/image-webpack-loader
             (imageOpt => `image-webpack?${imageOpt}`)(
               JSON.stringify({
@@ -360,10 +367,12 @@ module.exports = Object.assign(
         {
           test: /\.(woff|woff2)$/,
           loader: isProductionEnv
-            ? `url?limit=${process.env
-                .WEBCUBE_DATAURL_FONT_LIMIT}&name=assets/[name]_[hash].[ext]`
-            : `url?limit=${process.env
-                .WEBCUBE_DATAURL_FONT_LIMIT}&name=assets/[name].[ext]`,
+            ? `url?limit=${
+                process.env.WEBCUBE_DATAURL_FONT_LIMIT
+              }&name=assets/[name]_[hash].[ext]`
+            : `url?limit=${
+                process.env.WEBCUBE_DATAURL_FONT_LIMIT
+              }&name=assets/[name].[ext]`,
         },
         {
           test: /\.(ttf|eot|wav|mp3)$/,
